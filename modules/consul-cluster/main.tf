@@ -10,7 +10,8 @@ resource "azurerm_public_ip" "consul_access" {
   name = "${var.cluster_name}_access"
   location = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
-  public_ip_address_allocation = "static"
+  # public_ip_address_allocation = "static"
+  allocation_method = "Static"
   domain_name_label = "${var.cluster_name}"
 }
 
@@ -111,6 +112,7 @@ resource "azurerm_virtual_machine_scale_set" "consul" {
     ip_configuration {
       name = "ConsulIPConfiguration"
       subnet_id = "${var.subnet_id}"
+      primary = true
     }
   }
 
@@ -126,7 +128,7 @@ resource "azurerm_virtual_machine_scale_set" "consul" {
     managed_disk_type = "Standard_LRS"
   }
 
-  tags {
+  tags = {
     scaleSetName = "${var.cluster_name}"
   }
 }
