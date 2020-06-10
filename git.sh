@@ -1,5 +1,5 @@
 #!/bin/sh
-export VERSION_NUMBER="0.0.2"
+export VERSION_NUMBER="0.0.6"
 
 git add .
 git commit -m "Made changes to [XXX}"
