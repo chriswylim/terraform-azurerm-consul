@@ -1,5 +1,5 @@
 #!/bin/sh
-export VERSION_NUMBER="0.0.10"
+export VERSION_NUMBER="0.0.11"
 export COMMIT_MESSAGE="!Hotfix for Terraform 0.12.20"
 
 git pull --tags -f
