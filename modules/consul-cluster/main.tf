@@ -31,7 +31,7 @@ resource "azurerm_lb_nat_pool" "consul_lbnatpool" {
   count = "${var.associate_public_ip_address_load_balancer ? 1 : 0}"
   resource_group_name = "${var.resource_group_name}"
   name = "ssh"
-  loadbalancer_id = "${azurerm_lb.consul_access.id}"
+  loadbalancer_id = "${azurerm_lb.consul_access[0].id}"
   protocol = "Tcp"
   frontend_port_start = 2200
   frontend_port_end = 2299
@@ -43,7 +43,7 @@ resource "azurerm_lb_nat_pool" "consul_lbnatpool_rpc" {
   count = "${var.associate_public_ip_address_load_balancer ? 1 : 0}"
   resource_group_name = "${var.resource_group_name}"
   name = "rpc"
-  loadbalancer_id = "${azurerm_lb.consul_access.id}"
+  loadbalancer_id = "${azurerm_lb.consul_access[0].id}"
   protocol = "Tcp"
   frontend_port_start = 8300
   frontend_port_end = 8399
@@ -55,7 +55,7 @@ resource "azurerm_lb_nat_pool" "consul_lbnatpool_http" {
   count = "${var.associate_public_ip_address_load_balancer ? 1 : 0}"
   resource_group_name = "${var.resource_group_name}"
   name = "http"
-  loadbalancer_id = "${azurerm_lb.consul_access.id}"
+  loadbalancer_id = "${azurerm_lb.consul_access[0].id}"
   protocol = "Tcp"
   frontend_port_start = 8500
   frontend_port_end = 8599
@@ -66,7 +66,7 @@ resource "azurerm_lb_nat_pool" "consul_lbnatpool_http" {
 resource "azurerm_lb_backend_address_pool" "consul_bepool" {
   count = "${var.associate_public_ip_address_load_balancer ? 1 : 0}"
   resource_group_name = "${var.resource_group_name}"
-  loadbalancer_id = "${azurerm_lb.consul_access.id}"
+  loadbalancer_id = "${azurerm_lb.consul_access[0].id}"
   name = "BackEndAddressPool"
 }
 
