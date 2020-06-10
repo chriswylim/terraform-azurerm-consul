@@ -1,5 +1,5 @@
 #!/bin/sh
-export VERSION_NUMBER="0.0.6"
+export VERSION_NUMBER="0.0.7"
 export COMMIT_MESSAGE="!Hotfix for Terraform 0.12.20"
 
 git add .
