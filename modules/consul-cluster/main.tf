@@ -235,7 +235,7 @@ module "security_group_rules" {
 
   security_group_name = "${azurerm_network_security_group.consul.name}"
   resource_group_name = "${var.resource_group_name}"
-  allowed_inbound_cidr_blocks = ["${var.allowed_inbound_cidr_blocks}"]
+  allowed_inbound_cidr_blocks = "${var.allowed_inbound_cidr_blocks}"
 
   server_rpc_port = "${var.server_rpc_port}"
   cli_rpc_port    = "${var.cli_rpc_port}"
