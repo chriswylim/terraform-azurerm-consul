@@ -45,7 +45,7 @@ variable "allowed_inbound_cidr_blocks" {
 # ---------------------------------------------------------------------------------------------------------------------
 variable "location" {
   description = "The Azure region the consul cluster will be deployed in"
-  default = "East US"
+  default = "Southeast Asia"
 }
 
 variable "allowed_ssh_cidr_blocks" {
