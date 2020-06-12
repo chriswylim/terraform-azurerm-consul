@@ -101,7 +101,7 @@ resource "azurerm_virtual_machine_scale_set" "consul" {
 
     ssh_keys {
       path = "/home/${var.admin_user_name}/.ssh/authorized_keys"
-      key_data = "${var.key_data}"
+      key_data = file("${var.key_data}")
     }
   }
 
@@ -164,7 +164,7 @@ resource "azurerm_virtual_machine_scale_set" "consul_with_load_balancer" {
 
     ssh_keys {
       path = "/home/${var.admin_user_name}/.ssh/authorized_keys"
-      key_data = "${var.key_data}"
+      key_data = file("${var.key_data}")
     }
   }
 
